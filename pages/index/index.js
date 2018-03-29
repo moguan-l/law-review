@@ -8,5 +8,8 @@ Page({
     },
     onLoad() {
 
+    },
+    onReady() {
+
     }
 });
