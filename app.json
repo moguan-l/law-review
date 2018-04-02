@@ -2,13 +2,14 @@
     "pages": [
         "pages/transition/index",
         "pages/login/index",
+        "pages/reset-password/index",
         "pages/register/index",
         "pages/index/index"
     ],
     "window": {
         "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "WeChat",
-        "navigationBarTextStyle": "black"
+        "navigationBarBackgroundColor": "#37ac68",
+        "navigationBarTitleText": "违法审核",
+        "navigationBarTextStyle": "#fff"
     }
 }

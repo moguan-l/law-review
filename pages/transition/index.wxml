@@ -1,1 +1,3 @@
-<view>test</view>
+<view>
+    <view class="weui-loading"></view>
+</view>

@@ -1,1 +1,28 @@
-<view>test</view>
+<view>
+    <view class="cells">
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">用户名</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="手机号" value="{{login_code}}" bindinput="handleUserNameInput"/>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">密码</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" password placeholder="密码" value="{{password}}" bindinput="handlePasswordInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="cells__tips">
+        通过审核且未被禁用才可以正常登录
+        <navigator url="/pages/reset-password/index" class="agree__link pull-right">忘记密码</navigator>
+    </view>
+    <view class="btn-area">
+        <button class="btn" type="primary" bindtap="handleLogin">登录</button>
+    </view>
+    <navigator url="/pages/register/index" class="text-primary text-center" hover-class="none">注册</navigator>
+</view>

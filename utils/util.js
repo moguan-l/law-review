@@ -1,3 +1,9 @@
+/**
+ * 日期格式化
+ * @param date
+ * @param format
+ * @returns {*}
+ */
 export const formatTime = (date, format) => {
     const o = {
         'M+': date.getMonth() + 1,
@@ -19,3 +25,13 @@ export const formatTime = (date, format) => {
     }
     return format
 };
+/**
+ * 加载提示
+ * @param title
+ */
+export const loading = title => !!title ? wx.showLoading({title, mask: true}) : wx.hideLoading();
+/**
+ * 信息提示
+ * @param title
+ */
+export const info = title => wx.showToast({title, icon: 'none'});

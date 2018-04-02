@@ -1,4 +1,4 @@
-import {getCities, sendVerify, register} from '../../services/index';
+import {sendVerify, resetPassword} from '../../services/index';
 import {loading, info} from '../../utils/util';
 import {isPhone} from '../../utils/validator';
 
@@ -7,26 +7,11 @@ Page({
         mobile: '',
         vcode: '',
         sendWait: 0,
-        password: '',
-        name: '',
-        cityIndex: 0,
-        cities: [
-            {id: 1, name: '北京'},
-            {id: 2, name: '上海'},
-            {id: 3, name: '广州'},
-            {id: 4, name: '深圳'},
-            {id: 5, name: '青岛'}
-        ]
-    },
-    onLoad() {
-        loading('正在加载');
-        setTimeout(() => {
-            loading()
-        }, 2000)
+        new_password: ''
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
-            value = name == 'password' ? e.detail.value : e.detail.value.trim();
+            value = name == 'new_password' ? e.detail.value : e.detail.value.trim();
         this.setData({[name]: value});
         return value
     },
@@ -47,22 +32,16 @@ Page({
             }, 1000)
         }, 2000)
     },
-    handleCityChange(e) {
-        this.setData({cityIndex: e.detail.value})
-    },
-    register() {
-        let {mobile, vcode, password, name, cityIndex, cities} = this.data;
+    reset() {
+        let {mobile, vcode, new_password} = this.data;
         if (!isPhone(mobile)) {
             return info('请输入正确的手机号')
         }
         if (vcode === '') {
             return info('请输入验证码')
         }
-        if (password === '') {
-            return info('请输入密码')
-        }
-        if (name === '') {
-            return info('请输入姓名')
+        if (new_password === '') {
+            return info('请输入新密码')
         }
         loading('正在提交');
 
