@@ -16,6 +16,18 @@
                 <input class="input" placeholder="身份证号" data-name="ident_no" value="{{ident_no}}" bindinput="handleInput"/>
             </view>
         </view>
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage">
+            <view class="cell__bd">身份证正面照</view>
+            <view class="cell__ft cell__ft_in-access">
+                <image class="cell__ft-image" src="../../../images/credit.png"/>
+            </view>
+        </view>
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage">
+            <view class="cell__bd">身份证反面照</view>
+            <view class="cell__ft cell__ft_in-access">
+                <image class="cell__ft-image" src="../../../images/credit.png"/>
+            </view>
+        </view>
         <view class="cell cell_input">
             <view class="cell__hd">
                 <view class="label">支付宝账号</view>

@@ -10,8 +10,7 @@
         "pages/record/add/index",
         "pages/user/edit/index",
         "pages/user/duty/index",
-        "pages/user/credit/index",
-        "pages/user/credit/detail/index"
+        "pages/user/credit/index"
     ],
     "window": {
         "backgroundColor": "#f5f5f5",

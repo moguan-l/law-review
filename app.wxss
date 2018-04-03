@@ -1,7 +1,7 @@
 @import "weui.wxss";
 page {
     color: #333333;
-    font-size: 16px;
+    font-size: 14px;
 }
 button {
     border-radius: 3px;

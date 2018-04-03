@@ -13,7 +13,7 @@
                 <image src="../../images/credit.png" class="text-middle" style="width: 20px;height: 20px;margin-right: 5px" />
             </view>
             <view class="cell__bd">积分</view>
-            <view class="cell__ft cell__ft_in-access"></view>
+            <view class="cell__ft cell__ft_in-access">1200</view>
         </navigator>
     </view>
 </view>
