@@ -1,15 +1,53 @@
 {
     "pages": [
+        "pages/user/index",
         "pages/transition/index",
         "pages/login/index",
         "pages/reset-password/index",
         "pages/register/index",
-        "pages/index/index"
+        "pages/record/index",
+        "pages/record/detail/index",
+        "pages/record/add/index",
+        "pages/user/edit/index",
+        "pages/user/duty/index",
+        "pages/user/credit/index",
+        "pages/user/credit/detail/index"
     ],
     "window": {
+        "backgroundColor": "#f5f5f5",
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#37ac68",
         "navigationBarTitleText": "违法审核",
-        "navigationBarTextStyle": "#fff"
-    }
+        "navigationBarTextStyle": "#ffffff"
+    },
+    "tabBar": {
+        "color": "#888888",
+        "selectedColor": "#37ac68",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/record/index",
+                "text": "上传记录",
+                "iconPath": "./images/record.png",
+                "selectedIconPath": "./images/record-select.png"
+            },
+            {
+                "pagePath": "pages/user/duty/index",
+                "text": "去做任务",
+                "iconPath": "./images/duty.png",
+                "selectedIconPath": "./images/duty-select.png"
+            },
+            {
+                "pagePath": "pages/user/index",
+                "text": "个人中心",
+                "iconPath": "./images/user.png",
+                "selectedIconPath": "./images/user-select.png"
+            }
+        ]
+    },
+    "networkTimeout": {
+        "request": 20000,
+        "downloadFile": 20000
+    },
+    "debug": false
 }

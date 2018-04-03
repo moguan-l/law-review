@@ -1,0 +1,39 @@
+<view>
+    <view class="cells">
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">真实姓名</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="真实姓名" data-name="name" value="{{name}}" bindinput="handleInput"/>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">身份证号</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="身份证号" data-name="ident_no" value="{{ident_no}}" bindinput="handleInput"/>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">支付宝账号</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="支付宝账号" data-name="pay_account" value="{{pay_account}}" bindinput="handleInput"/>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">支付宝昵称</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="支付宝昵称" data-name="pay_name" value="{{pay_name}}" bindinput="handleInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area">
+        <button class="btn" type="primary" bindtap="submit">提交</button>
+    </view>
+</view>

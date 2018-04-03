@@ -1,0 +1,3 @@
+<view>
+    <navigator url="/pages/record/add/index">添加</navigator>
+</view>

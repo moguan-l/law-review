@@ -25,6 +25,9 @@ Page({
             return info('请输入密码')
         }
         loading('正在登录');
-
+        setTimeout(() => {
+            loading();
+            wx.switchTab({url: '/pages/record/index'})
+        }, 1000)
     }
 });

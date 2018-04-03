@@ -1,0 +1,19 @@
+<view>
+    <view class="panel">
+        <view class="panel__bd">
+            <navigator url="/pages/user/edit/index" class="media-box media-box_text media-box_access" hover-class="media-box_active">
+                <view class="media-box__title media-box__title_in-text">李庆杰</view>
+                <view class="media-box__desc">17663933424</view>
+            </navigator>
+        </view>
+    </view>
+    <view class="cells">
+        <navigator url="/pages/user/credit/index" class="cell cell_access" hover-class="cell_active">
+            <view class="cell__hd">
+                <image src="../../images/credit.png" class="text-middle" style="width: 20px;height: 20px;margin-right: 5px" />
+            </view>
+            <view class="cell__bd">积分</view>
+            <view class="cell__ft cell__ft_in-access"></view>
+        </navigator>
+    </view>
+</view>

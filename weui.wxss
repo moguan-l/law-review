@@ -722,9 +722,6 @@ icon {
     position: relative;
     overflow: hidden
 }
-.panel:first-child {
-    margin-top: 0
-}
 .panel:before {
     top: 0;
     border-top: 1rpx solid #e5e5e5
@@ -845,6 +842,9 @@ icon {
 }
 .media-box_small-appmsg {
     padding: 0
+}
+.media-box_active {
+    background-color: #ececec
 }
 .cells_in-small-appmsg {
     margin-top: 0
