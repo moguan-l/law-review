@@ -24,11 +24,11 @@ icon {
 }
 .cells:before {
     top: 0;
-    border-top: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2
 }
 .cells:after {
     bottom: 0;
-    border-bottom: 1rpx solid #e5e5e5
+    border-bottom: 1rpx solid #e2e2e2
 }
 .cells__title {
     margin-top: 10px;
@@ -58,7 +58,7 @@ icon {
     left: 15px;
     top: 0;
     right: 0;
-    border-top: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2
 }
 .cell:first-child:before {
     content: none;
@@ -165,11 +165,11 @@ icon {
 }
 .form-preview:before {
     top: 0;
-    border-top: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2
 }
 .form-preview:after {
     bottom: 0;
-    border-bottom: 1rpx solid #e5e5e5
+    border-bottom: 1rpx solid #e2e2e2
 }
 .form-preview__value {
     font-size: 14px
@@ -189,7 +189,7 @@ icon {
     left: 15px;
     bottom: 0;
     right: 0;
-    border-bottom: 1rpx solid #e5e5e5
+    border-bottom: 1rpx solid #e2e2e2
 }
 .form-preview__bd {
     padding: 10px 15px;
@@ -265,7 +265,7 @@ icon {
     height: 2.5em;
     min-height: 2.5em;
     line-height: 2.5em;
-    border-right: 1rpx solid #e5e5e5
+    border-right: 1rpx solid #e2e2e2
 }
 .select:before {
     content: '';
@@ -301,7 +301,7 @@ icon {
     color: #37ac68;
     font-size: 16px;
     line-height: 2.5em;
-    border-left: 1rpx solid #e5e5e5;
+    border-left: 1rpx solid #e2e2e2;
     white-space: nowrap
 }
 .vcode-btn:active {
@@ -366,14 +366,14 @@ icon {
     margin-bottom: 9px;
     width: 77px;
     height: 77px;
-    border: 1rpx solid #e5e5e5
+    border: 1rpx solid #e2e2e2
 }
 .uploader__input-box:after, .uploader__input-box:before {
     content: '';
     position: absolute;
     top: 50%;
     left: 50%;
-    background-color: #e5e5e5;
+    background-color: #e2e2e2;
     transform: translate(-50%, -50%)
 }
 .uploader__input-box:before {
@@ -494,8 +494,8 @@ icon {
 }
 .grids {
     overflow: hidden;
-    border-top: 1rpx solid #e5e5e5;
-    border-left: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2;
+    border-left: 1rpx solid #e2e2e2
 }
 .grid {
     position: relative;
@@ -503,8 +503,8 @@ icon {
     float: left;
     padding: 20px 10px;
     width: 33.33333333%;
-    border-right: 1rpx solid #e5e5e5;
-    border-bottom: 1rpx solid #e5e5e5
+    border-right: 1rpx solid #e2e2e2;
+    border-bottom: 1rpx solid #e2e2e2
 }
 .grid_active {
     background-color: #ececec
@@ -586,7 +586,7 @@ icon {
     vertical-align: middle
 }
 .loadmore_line {
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid #e2e2e2;
     margin-top: 2.4em
 }
 .loadmore__tips_in-line {
@@ -612,7 +612,7 @@ icon {
     width: 4px;
     height: 4px;
     border-radius: 50%;
-    background-color: #e5e5e5
+    background-color: #e2e2e2
 }
 .panel {
     position: relative;
@@ -620,12 +620,9 @@ icon {
     margin-top: 10px;
     background-color: #fff
 }
-.panel:last-child {
-    margin-bottom: 10px;
-}
 .panel:before {
     top: 0;
-    border-top: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2
 }
 .panel:after, .panel:before {
     content: '';
@@ -635,7 +632,7 @@ icon {
 }
 .panel:after {
     bottom: 0;
-    border-bottom: 1rpx solid #e5e5e5
+    border-bottom: 1rpx solid #e2e2e2
 }
 .panel__hd {
     padding: 14px 15px 10px;
@@ -649,7 +646,7 @@ icon {
     left: 15px;
     bottom: 0;
     right: 0;
-    border-bottom: 1rpx solid #e5e5e5
+    border-bottom: 1rpx solid #e2e2e2
 }
 .media-box {
     padding: 15px;
@@ -661,7 +658,7 @@ icon {
     left: 15px;
     top: 0;
     right: 0;
-    border-top: 1rpx solid #e5e5e5
+    border-top: 1rpx solid #e2e2e2
 }
 .media-box:first-child:before {
     content: none
