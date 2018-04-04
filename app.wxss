@@ -2,6 +2,7 @@
 page {
     color: #333333;
     font-size: 14px;
+    background-color: #f5f5f5;
 }
 button {
     border-radius: 3px;
@@ -44,6 +45,21 @@ button[type=primary].button-hover {
 }
 .text-bottom {
     vertical-align: bottom !important;
+}
+.text-1 {
+    font-size: 16px !important;
+}
+.text-2 {
+    font-size: 15px !important;
+}
+.text-3 {
+    font-size: 14px !important;
+}
+.text-4 {
+    font-size: 13px !important;
+}
+.text-5 {
+    font-size: 12px !important;
 }
 .text-ellipsis {
     overflow: hidden;

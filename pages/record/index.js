@@ -1,3 +1,5 @@
+import {queryEventHistory} from '../../services/index';
+
 const app = getApp();
 
 Page({

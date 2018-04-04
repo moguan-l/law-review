@@ -1,3 +1,5 @@
+import {eventUpload} from '../../../services/index';
+
 const app = getApp();
 
 Page({
