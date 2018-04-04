@@ -1,3 +1,117 @@
 <view>
-    <navigator url="/pages/record/add/index">添加</navigator>
+    <view class="panel">
+        <view class="panel__bd">
+            <view class="media-box media-box_text">
+                <view class="media-box__title media-box__title_in-text">任务名称</view>
+                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
+                <view class="media-box__pics">
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="media-box__info">
+                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel">
+        <view class="panel__bd">
+            <view class="media-box media-box_text">
+                <view class="media-box__title media-box__title_in-text">任务名称</view>
+                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
+                <view class="media-box__pics">
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="media-box__info">
+                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="panel">
+        <view class="panel__bd">
+            <view class="media-box media-box_text">
+                <view class="media-box__title media-box__title_in-text">任务名称</view>
+                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
+                <view class="media-box__pics">
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                    <view class="media-box__pic-item">
+                        <view class="media-box__pic">
+                            <image src="../../images/credit.png"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="media-box__info">
+                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <navigator url="/pages/record/add/index" class="add-record-bar">+</navigator>
 </view>

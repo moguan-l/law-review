@@ -1,3 +1,5 @@
+import {queryNotify} from '../../../services/index';
+
 const app = getApp();
 
 Page({

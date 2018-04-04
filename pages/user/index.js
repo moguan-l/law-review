@@ -1,3 +1,5 @@
+import {userRealPoint} from '../../services/index';
+
 const app = getApp();
 
 Page({

@@ -1,3 +1,5 @@
+import {userUpdate} from '../../../services/index';
+
 const app = getApp();
 
 Page({
