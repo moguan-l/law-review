@@ -454,6 +454,9 @@ icon {
 .btn-area {
     margin: 15px 15px 5px
 }
+.agree__link {
+    color: #586c94
+}
 .footer {
     color: #888;
     font-size: 14px;

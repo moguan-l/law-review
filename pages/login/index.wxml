@@ -17,9 +17,11 @@
             </view>
         </view>
     </view>
-    <view class="cells__tips">
-        通过审核且未被禁用才可以正常登录
-        <navigator url="/pages/reset-password/index" class="agree__link pull-right">忘记密码</navigator>
+    <view class="cells__tips flex">
+        <view class="flex-1">
+            通过审核且未被禁用才可以正常登录
+        </view>
+        <navigator url="/pages/reset-password/index" class="agree__link">忘记密码</navigator>
     </view>
     <view class="btn-area">
         <button class="btn" type="primary" bindtap="login">登录</button>

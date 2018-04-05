@@ -72,3 +72,9 @@ button[type=primary].button-hover {
 .pull-right {
     float: right !important;
 }
+.flex {
+    display: flex;
+}
+.flex-1 {
+    flex: 1;
+}
