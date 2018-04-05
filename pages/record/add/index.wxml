@@ -1,3 +1,48 @@
 <view>
-    违法拍
+    <view class="cells">
+        <view class="cell">
+            <view class="cell__bd">
+                <view class="uploader">
+                    <view class="uploader__bd">
+                        <view class="uploader__files">
+                            <block wx:for="{{files}}" wx:key="{{item.timestamp}}">
+                                <view class="uploader__file" bindtap="deleteImage" data-timestamp="{{item.timestamp}}">
+                                    <image class="uploader__img" src="{{item.tempFilePath}}"/>
+                                </view>
+                            </block>
+                        </view>
+                        <view class="uploader__input-box">
+                            <view class="uploader__input" bindtap="chooseImage"></view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">违规主体</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="违规主体" data-name="title" value="{{title}}" bindinput="handleInput"/>
+            </view>
+        </view>
+        <view class="cell cell_select">
+            <view class="cell__hd cell__hd_in-select-after">
+                <view class="label">所在城市</view>
+            </view>
+            <view class="cell__bd">
+                <picker bindchange="handleCityChange" range-key="name" value="{{cityIndex}}" range="{{cities}}">
+                    <view class="select select_in-select-after">{{cities[cityIndex] ? cities[cityIndex].name : '请选择'}}</view>
+                </picker>
+            </view>
+        </view>
+        <view class="cell">
+            <view class="cell__bd">
+                <textarea class="textarea" placeholder="违规说明" data-name="comment" value="{{comment}}" bindinput="handleInput"/>
+            </view>
+        </view>
+    </view>
+    <view class="btn-area">
+        <button class="btn" type="primary" bindtap="upload">提交</button>
+    </view>
 </view>

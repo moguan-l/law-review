@@ -26,7 +26,7 @@ Page({
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
-            value = name == 'password' ? e.detail.value : e.detail.value.trim();
+            value = name === 'password' ? e.detail.value : e.detail.value.trim();
         this.setData({[name]: value});
         return value
     },

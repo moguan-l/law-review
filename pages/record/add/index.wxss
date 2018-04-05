@@ -1,0 +1,24 @@
+.uploader__file {
+    position: relative;
+}
+.uploader__file:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .3);
+}
+.uploader__file:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -9px;
+    margin-left: -9px;
+    width: 18px;
+    height: 18px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAEhElEQVR42t2Yz28bRRTH3bTQpkgI9RcShB8tKuFQUfVPKPSAhJSWtOQXBxBcOFVElRDikksPNIhGOaKSprHzY2PjAoriWipyFAmFA5ZQFFBwbWLixLUbx+vYsb0/HfN9zqaywux4K61D2pG+yjrz5s1n5r2Z2VmHw2KZmZlplGXlj3K5XNqwWMgW0kulklIsFieCweBBh90lHo8f0XU9hE4k9ClDypZKpYpk1JlJQttILBZ7wVGH0lAoFD7O54tfKYrSC31dLVmWezErFcGmN5fLV5TPF65Rm7W13KeYvQbHk1D2dHd3N+4mVagw9ZOY4oXdpFwud92h66WYsXp2jWRZDTmy2ey7SNxBULrwPEzKZLIjopgZJa2uimP4PVYsSgKSXFBVVcAqE+CANF4HCZlM5uLjsxJAvJc2U7fbvZdn5/P59k9NTR0wqw+Hw/uj0egBno+enp4GsqE+uVDpdPpZhPQjbIbC+vp6Bzln2cHmMIUVIe2XJOn49nosqJc1TeuDzfjc3NxLJlD70Ecr9YX0+AThe84UDLn2Goy8lIBw/B02VOZO7fH88DZ2fDqaFtCmZXs92rZQHcA3vF7vOywffv/MoXw+3099Ac5LfZuCYSaaMUpfebMMQczROp1Cq2GzCPu27fX0P4AtkoEgeM6bpMzzAP+WbDAZk9Q3L7+aQe8nYzRyUkhYdvPz852GTQwQ7TwwGgTLB52bmKUBA8yHZz4YOqsJFolEaoDpACvbCvYGRloTLJVKdfHAdL3cTmEmG5drnLknhUKhF7FwbtoKhiXOnTFUPQSbnPS31QKDjzu2gFXnmK7oXDC/P/D/gMGmgwd29+40E2x2NtxUKEiDVsGa7QYLBKbbWT6Wl5ebcFhbB7OyXSAMHWSDQcRgzwW7dy/SyT5lik2qqt+yFSwQ+KVtR8GoEku3JtiNG0OXeGC0ILbARDHbaTIJTejDGphxJN2pBeZ2/8gFq975UbrMwCB7wcZHv7/4CGAf7BjYrYHh93Yl2MAjgOF550I5ODh6oepI4oKZrcq6gA0NCef5h7j+/hbY9PSvbbaCwblLFMVXWHYul7ulxiFOq/YfshlxelptAaNXEONVZNgM7PZt31tGji1iAJcYoWxFXXTzEP/5LMuHcS9wWt1gX8duTDfzMs6xkUQi8yrLjm5HcPw57D+jG9V/9zn306i7jDvDl0tLS40sHzRoiorVI+kkjCc2weSxZDJ5ol7XRPg+jqiMWAJbW5NOKIrqMULpxy3mdL3AMGOn0MeEAfZTNps9aWqMaT+El7erxlfAOBp8gZEdsxsqkUgcRapcocVD10D0eQ35fYR7M8Yl9CyS8nfK7cobqq67VVXrB2SfppW+YQl2+KtdJ5GdomimAlC/8f2DVu0GnucQmXM1P+rF4/GDSOwuAP1pHCl0sdUg1brKXFFEyDEG8hdm6kNE5Rmr3y/2IQfepE+WkiT/hhGFMZN/53LrC4VCMYrf95ETyXRaTD54sPJQKyupRCq1mqC/hu6LYmaJ2lYL7WehPkzCmWAw+BSL4V9OYbMIATPj6gAAAABJRU5ErkJggg==);
+    background-size: cover;
+}

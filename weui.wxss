@@ -264,8 +264,7 @@ icon {
     padding-right: 30px;
     height: 2.5em;
     min-height: 2.5em;
-    line-height: 2.5em;
-    border-right: 1rpx solid #e2e2e2
+    line-height: 2.5em
 }
 .select:before {
     content: '';
@@ -575,7 +574,7 @@ icon {
     min-width: 0
 }
 .loadmore {
-    margin: 1.5em auto;
+    margin: 15px auto;
     width: 65%;
     font-size: 14px;
     line-height: 1.6;
@@ -586,15 +585,15 @@ icon {
     vertical-align: middle
 }
 .loadmore_line {
-    border-top: 1px solid #e2e2e2;
-    margin-top: 2.4em
+    margin: 24px auto 0;
+    border-top: 1rpx solid #e2e2e2
 }
 .loadmore__tips_in-line {
     position: relative;
     top: -.9em;
     padding: 0 .55em;
     color: #888;
-    background-color: #fff
+    background-color: #f5f5f5
 }
 .loadmore__tips_in-dot {
     position: relative;

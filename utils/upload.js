@@ -14,7 +14,7 @@ export default (filePath, folder = '{year}/{mon}/{day}') => {
         },
         policy = crypto.enc.Base64.stringify(crypto.enc.Utf8.parse(JSON.stringify(policyObj)));
     let md5Password = crypto.MD5(password).toString(),
-        signature = crypto.HmacSHA1(['POST', '/' + bucket, date, policy].join('&'), md5Password).toString(CryptoJS.enc.Base64);
+        signature = crypto.HmacSHA1(['POST', '/' + bucket, date, policy].join('&'), md5Password).toString(crypto.enc.Base64);
     return new Promise((success, fail) => {
         wx.uploadFile({
             url: `https://${endpoint}.api.upyun.com/${bucket}`,
@@ -24,7 +24,11 @@ export default (filePath, folder = '{year}/{mon}/{day}') => {
                 authorization: `UPYUN ${operator}:${signature}`,
                 policy
             },
-            success, fail
+            success(res) {
+                res.upyunHost = `http://${bucket}.b0.upaiyun.com`;
+                success(res)
+            },
+            fail
         })
     })
 }

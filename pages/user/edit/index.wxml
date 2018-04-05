@@ -16,16 +16,16 @@
                 <input class="input" placeholder="身份证号" data-name="ident_no" value="{{ident_no}}" bindinput="handleInput"/>
             </view>
         </view>
-        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage">
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="ident_side_a">
             <view class="cell__bd">身份证正面照</view>
             <view class="cell__ft cell__ft_in-access">
-                <image class="cell__ft-image" src="../../../images/credit.png"/>
+                <image class="cell__ft-image" src="{{ident_side_a.tempFilePath || ident_side_a.url}}"/>
             </view>
         </view>
-        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage">
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="ident_side_b">
             <view class="cell__bd">身份证反面照</view>
             <view class="cell__ft cell__ft_in-access">
-                <image class="cell__ft-image" src="../../../images/credit.png"/>
+                <image class="cell__ft-image" src="{{ident_side_b.tempFilePath || ident_side_b.url}}"/>
             </view>
         </view>
         <view class="cell cell_input">
@@ -46,6 +46,6 @@
         </view>
     </view>
     <view class="btn-area">
-        <button class="btn" type="primary" bindtap="submit">提交</button>
+        <button class="btn" type="primary" bindtap="upload">提交</button>
     </view>
 </view>
