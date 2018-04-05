@@ -1,5 +1,5 @@
 import request from '../utils/request';
-import {baseURL} from '../config/index';
+import {API} from '../config/index';
 
 /**
  * 登录
@@ -7,14 +7,14 @@ import {baseURL} from '../config/index';
  * @returns {*}
  */
 export const login = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.login, data})
 };
 /**
  * 获取城市列表
  * @returns {*}
  */
 export const getCities = () => {
-    return request({url: `${baseURL}`})
+    return request({url: API.getCities})
 };
 /**
  * 发送验证码
@@ -22,7 +22,7 @@ export const getCities = () => {
  * @returns {*}
  */
 export const sendVerify = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.sendVerify, data})
 };
 /**
  * 注册
@@ -30,7 +30,7 @@ export const sendVerify = data => {
  * @returns {*}
  */
 export const register = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.register, data})
 };
 /**
  * 修改密码
@@ -38,7 +38,7 @@ export const register = data => {
  * @returns {*}
  */
 export const resetPassword = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.resetPassword, data: {type: 1, ...data}})
 };
 /**
  * 完善个人资料
@@ -46,7 +46,7 @@ export const resetPassword = data => {
  * @returns {*}
  */
 export const userUpdate = data => {
-    return request({method: 'POST', url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.userUpdate, data})
 };
 /**
  * 我的任务
@@ -54,7 +54,7 @@ export const userUpdate = data => {
  * @returns {*}
  */
 export const queryNotify = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.queryNotify, data})
 };
 /**
  * 违法拍
@@ -62,7 +62,7 @@ export const queryNotify = data => {
  * @returns {*}
  */
 export const eventUpload = data => {
-    return request({method: 'POST', url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.eventUpload, data})
 };
 /**
  * 上传记录
@@ -70,7 +70,7 @@ export const eventUpload = data => {
  * @returns {*}
  */
 export const queryEventHistory = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.queryEventHistory, data})
 };
 /**
  * 我的积分
@@ -78,7 +78,7 @@ export const queryEventHistory = data => {
  * @returns {*}
  */
 export const userRealPoint = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.userRealPoint, data})
 };
 /**
  * 积分明细
@@ -86,5 +86,5 @@ export const userRealPoint = data => {
  * @returns {*}
  */
 export const queryUserPoint = data => {
-    return request({url: `${baseURL}`, data})
+    return request({method: 'POST', url: API.queryUserPoint, data})
 };

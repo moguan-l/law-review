@@ -17,7 +17,7 @@
                 <view class="label">验证码</view>
             </view>
             <view class="cell__bd">
-                <input class="input" type="number" placeholder="验证码" data-name="vcode" value="{{vcode}}" bindinput="handleInput"/>
+                <input class="input" type="number" placeholder="验证码" data-name="vCode" value="{{vCode}}" bindinput="handleInput"/>
             </view>
         </view>
         <view class="cell cell_input">
@@ -25,7 +25,7 @@
                 <view class="label">新密码</view>
             </view>
             <view class="cell__bd">
-                <input class="input" password placeholder="新密码" data-name="new_password" value="{{new_password}}" bindinput="handleInput"/>
+                <input class="input" password placeholder="新密码" data-name="newPassword" value="{{newPassword}}" bindinput="handleInput"/>
             </view>
         </view>
     </view>

@@ -2,7 +2,24 @@
  * 接口域名
  * @type {string}
  */
-export const baseURL = '';
+const baseURL = 'https://www.pohou.com';
+/**
+ * 接口地址
+ * @type {{login: string, getCities: string, sendVerify: string, register: string, resetPassword: string, userUpdate: string, queryNotify: string, eventUpload: string, queryEventHistory: string, userRealPoint: string, queryUserPoint: string}}
+ */
+export const API = {
+    login: `${baseURL}/api/user/manage/login`,
+    getCities: `${baseURL}`,
+    sendVerify: `${baseURL}/api/user/base/sendVerify`,
+    register: `${baseURL}/api/user/manage/register`,
+    resetPassword: `${baseURL}/api/user/manage/resetPassword`,
+    userUpdate: `${baseURL}/api/user/manage/userUpdate`,
+    queryNotify: `${baseURL}`,
+    eventUpload: `${baseURL}`,
+    queryEventHistory: `${baseURL}`,
+    userRealPoint: `${baseURL}/api/user/point/userRealPoint`,
+    queryUserPoint: `${baseURL}`
+};
 
 /**
  * 又拍云配置

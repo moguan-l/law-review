@@ -5,9 +5,10 @@ import {isPhone} from '../../utils/validator';
 Page({
     data: {
         mobile: '',
-        vcode: '',
+        vCode: '',
         sendWait: 0,
         password: '',
+        nickname: '',
         name: '',
         cityIndex: 0,
         cities: [
@@ -19,10 +20,16 @@ Page({
         ]
     },
     onLoad() {
-        loading('正在加载');
-        setTimeout(() => {
-            loading()
-        }, 2000)
+        /*loading('正在加载');
+        getCities()
+            .then(res => {
+                loading();
+                this.setData({cities: res.data})
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })*/
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
@@ -36,35 +43,60 @@ Page({
             return info('请输入正确的手机号')
         }
         loading('正在发送');
-        setTimeout(() => {
-            loading();
-            wx.showToast({title: '发送成功'});
-            this.setData({sendWait: 60});
-            this.handleSendWait = setInterval(() => {
-                let sendWait = this.data.sendWait - 1;
-                this.setData({sendWait});
-                sendWait <= 0 && clearInterval(this.handleSendWait)
-            }, 1000)
-        }, 2000)
+        sendVerify({mobile})
+            .then(res => {
+                loading();
+                if (res.ret) {
+                    wx.showToast({title: '发送成功'});
+                    this.setData({sendWait: 60});
+                    this.handleSendWait = setInterval(() => {
+                        let sendWait = this.data.sendWait - 1;
+                        this.setData({sendWait});
+                        sendWait <= 0 && clearInterval(this.handleSendWait)
+                    }, 1000)
+                } else {
+                    info(res.errmsg)
+                }
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })
     },
     handleCityChange(e) {
         this.setData({cityIndex: e.detail.value})
     },
     register() {
-        let {mobile, vcode, password, name, cityIndex, cities} = this.data;
+        let {mobile, vCode, password, nickname, name, cityIndex, cities} = this.data;
         if (!isPhone(mobile)) {
             return info('请输入正确的手机号')
         }
-        if (vcode === '') {
+        if (vCode === '') {
             return info('请输入验证码')
         }
         if (password === '') {
             return info('请输入密码')
         }
+        if (nickname === '') {
+            return info('请输入昵称')
+        }
         if (name === '') {
             return info('请输入姓名')
         }
         loading('正在提交');
-
+        register({mobile, vCode, password, nickname, name, cityId: cities[cityIndex].id})
+            .then(res => {
+                loading();
+                if (res.ret) {
+                    wx.showToast({title: '注册成功'});
+                    setTimeout(() => wx.navigateBack(), 1500)
+                } else {
+                    info(res.errmsg)
+                }
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })
     }
 });

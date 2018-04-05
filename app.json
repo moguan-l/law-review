@@ -1,11 +1,10 @@
 {
     "pages": [
-        "pages/record/index",
         "pages/transition/index",
         "pages/login/index",
         "pages/reset-password/index",
         "pages/register/index",
-        "pages/record/detail/index",
+        "pages/record/index",
         "pages/record/add/index",
         "pages/user/index",
         "pages/user/edit/index",
