@@ -1,4 +1,4 @@
-import crypto from '../../utils/crypto-js';
+import crypto from '../../utils/crypto-js/index';
 import {sendVerify, resetPassword} from '../../services/index';
 import {loading, info} from '../../utils/util';
 import {isPhone} from '../../utils/validator';
@@ -58,7 +58,7 @@ Page({
             .then(res => {
                 loading();
                 if (res.ret) {
-                    wx.showToast({title: '修改重置成功'});
+                    wx.showToast({title: '重置成功'});
                     setTimeout(() => wx.navigateBack(), 1500)
                 } else {
                     info(res.errmsg)

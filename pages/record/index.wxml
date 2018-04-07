@@ -17,7 +17,7 @@
             </view>
         </view>
     </view>
-    <view class="load-more" wx:if="loading">
+    <view class="load-more" wx:if="{{loading}}">
         <view class="loading"></view>
         <view class="load-more__tips">正在加载</view>
     </view>

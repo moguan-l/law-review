@@ -260,11 +260,14 @@ icon {
 }
 .select {
     position: relative;
+    overflow: hidden;
     padding-left: 15px;
     padding-right: 30px;
     height: 2.5em;
     min-height: 2.5em;
-    line-height: 2.5em
+    line-height: 2.5em;
+    white-space: nowrap;
+    text-overflow: ellipsis
 }
 .select:before {
     content: '';

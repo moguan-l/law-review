@@ -1,5 +1,5 @@
-import crypto from '../../utils/crypto-js';
-import {getCities, sendVerify, register} from '../../services/index';
+import crypto from '../../utils/crypto-js/index';
+import {getCityList, sendVerify, register} from '../../services/index';
 import {loading, info} from '../../utils/util';
 import {isPhone} from '../../utils/validator';
 
@@ -12,25 +12,23 @@ Page({
         nickname: '',
         name: '',
         cityIndex: 0,
-        cities: [
-            {id: 1, name: '北京'},
-            {id: 2, name: '上海'},
-            {id: 3, name: '广州'},
-            {id: 4, name: '深圳'},
-            {id: 5, name: '青岛'}
-        ]
+        cities: []
     },
     onLoad() {
-        /*loading('正在加载');
-        getCities()
+        loading('正在加载');
+        getCityList()
             .then(res => {
                 loading();
-                this.setData({cities: res.data})
+                if (res.ret) {
+                    this.setData({cities: res.data || []})
+                } else {
+                    info(res.errmsg)
+                }
             })
             .catch(err => {
                 loading();
                 info(err.errMsg)
-            })*/
+            })
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
@@ -85,7 +83,8 @@ Page({
             return info('请输入姓名')
         }
         loading('正在提交');
-        register({mobile, vCode, password: crypto.MD5(password).toString(), nickname, name, cityId: cities[cityIndex].id})
+        let city = cities[cityIndex] || {};
+        register({mobile, vCode, password: crypto.MD5(password).toString(), nickname, name, cityCode: city.cityCode, cityName: city.name})
             .then(res => {
                 loading();
                 if (res.ret) {

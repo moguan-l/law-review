@@ -1,4 +1,4 @@
-import {eventUpload} from '../../../services/index';
+import {queryTemplate, eventUpload} from '../../../services/index';
 import upload from '../../../utils/upload';
 import {loading, info} from '../../../utils/util';
 
@@ -14,16 +14,25 @@ Page({
         lng: '',
         content: '',
         reasonIndex: 0,
-        reasonTemplates: [
-            {id: 1, name: '北京'},
-            {id: 2, name: '上海'},
-            {id: 3, name: '广州'},
-            {id: 4, name: '深圳'},
-            {id: 5, name: '青岛'}
-        ]
+        reasonTemplates: []
     },
     onLoad() {
-
+        loading('正在加载');
+        queryTemplate()
+            .then(res => {
+                loading();
+                if (res.ret) {
+                    this.setData({
+                        reasonTemplates: res.data || []
+                    })
+                } else {
+                    info(res.errmsg)
+                }
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
@@ -51,15 +60,29 @@ Page({
         files = files.filter(item => item.timestamp !== timestamp);
         this.setData({files})
     },
-    chooseLocation() {
+    _chooseLocation() {
         wx.chooseLocation({
             success: res => {
-                let {address, latitude, longitude} = res;
+                let {address = '', latitude, longitude} = res;
                 this.setData({
                     address,
                     lat: latitude,
                     lng: longitude
                 })
+            }
+        })
+    },
+    chooseLocation() {
+        wx.getSetting({
+            success: res => {
+                if (!res.authSetting['scope.userLocation']) {
+                    wx.authorize({
+                        scope: 'scope.userLocation',
+                        success: this._chooseLocation
+                    })
+                } else {
+                    this._chooseLocation()
+                }
             }
         })
     },
@@ -69,7 +92,7 @@ Page({
     submit() {
         let {ownership, files, lat, lng, content, reasonIndex, reasonTemplates} = this.data,
             attachInfoList = files.map(item => ({url: item.url}));
-        eventUpload({mobile: this.mobile, attachInfoList, ownership, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex].id, })
+        eventUpload({mobile: this.mobile, attachInfoList, ownership, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].templateTypeId : null, })
             .then(res => {
                 loading();
                 if (res.ret) {

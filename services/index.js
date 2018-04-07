@@ -13,8 +13,8 @@ export const login = data => {
  * 获取城市列表
  * @returns {*}
  */
-export const getCities = () => {
-    return request({url: API.getCities})
+export const getCityList = () => {
+    return request({method: 'POST', url: API.getCityList, data: {pageNum: 1, pageSize: 9999}})
 };
 /**
  * 发送验证码
@@ -41,6 +41,14 @@ export const resetPassword = data => {
     return request({method: 'POST', url: API.resetPassword, data: {type: 1, ...data}})
 };
 /**
+ * 获取用户信息
+ * @param data
+ * @returns {*}
+ */
+export const getUserDetail = data => {
+    return request({method: 'POST', url: API.getUserDetail, data})
+};
+/**
  * 完善个人资料
  * @param data
  * @returns {*}
@@ -55,6 +63,13 @@ export const userUpdate = data => {
  */
 export const queryNotify = data => {
     return request({method: 'POST', url: API.queryNotify, data})
+};
+/**
+ * 获取违规模板列表
+ * @returns {*}
+ */
+export const queryTemplate = () => {
+    return request({method: 'POST', url: API.queryTemplate})
 };
 /**
  * 违法拍

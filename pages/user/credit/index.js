@@ -11,7 +11,7 @@ Page({
             pageNum: 0,
             pageSize: 10
         },
-        pageCount: Infinity,
+        pageCount: 1,
         items: []
     },
     onLoad() {

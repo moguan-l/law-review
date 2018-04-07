@@ -1,9 +1,15 @@
 <view>
     <view class="panel">
         <view class="panel__bd">
-            <navigator url="/pages/user/edit/index" class="media-box media-box_text media-box_access" hover-class="media-box_active">
-                <view class="media-box__title media-box__title_in-text">李庆杰</view>
-                <view class="media-box__desc">{{user.mobile}}</view>
+            <navigator url="/pages/user/edit/index" class="media-box media-box_text media-box_access flex flex-middle" hover-class="media-box_active">
+                <view class="flex-1">
+                    <view class="media-box__title media-box__title_in-text">
+                        {{user.nickname || '--'}}
+                        &emsp;
+                    </view>
+                    <view class="media-box__desc">{{user.mobile || '--'}}</view>
+                </view>
+                <view class="text-muted">{{status[user.identStatus]}}</view>
             </navigator>
         </view>
     </view>
@@ -13,7 +19,7 @@
                 <image src="../../images/credit.png" class="text-middle" style="width: 20px;height: 20px;margin-right: 5px" />
             </view>
             <view class="cell__bd">积分</view>
-            <view class="cell__ft cell__ft_in-access">{{credit}}</view>
+            <view class="cell__ft cell__ft_in-access">{{credit.availabilityPoint || 0}}</view>
         </navigator>
     </view>
 </view>
