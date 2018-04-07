@@ -14,7 +14,9 @@ Page({
         items: []
     },
     onLoad() {
-        this.mobile = app.user.get().mobile;
+        this.mobile = app.user.get().mobile
+    },
+    onShow() {
         this.getItems()
     },
     onReachBottom() {

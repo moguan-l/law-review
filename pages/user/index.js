@@ -15,7 +15,9 @@ Page({
         credit: {}
     },
     onLoad() {
-        this.mobile = app.user.get().mobile;
+        this.mobile = app.user.get().mobile
+    },
+    onShow() {
         loading('正在加载');
         Promise.all([
                 getUserDetail({mobile: this.mobile}),

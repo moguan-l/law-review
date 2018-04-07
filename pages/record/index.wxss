@@ -26,15 +26,16 @@
 .add-record-bar {
     position: fixed;
     bottom: 15px;
-    right: 15px;
+    left: 50%;
     z-index: 999;
-    width: 50px;
+    margin-left: -15%;
+    width: 30%;
     height: 50px;
     color: #ffffff;
     font-size: 32px;
-    line-height:43px;
+    line-height: 43px;
     text-align: center;
     background-color: rgba(55, 172, 104, .9);
-    border-radius: 50%;
+    border-radius: 25px;
     box-shadow: 0 0 5px rgba(0, 0, 0, .6);
 }

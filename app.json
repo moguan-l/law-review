@@ -25,13 +25,13 @@
         "list": [
             {
                 "pagePath": "pages/record/index",
-                "text": "上传记录",
+                "text": "违规记录",
                 "iconPath": "./images/record.png",
                 "selectedIconPath": "./images/record-select.png"
             },
             {
                 "pagePath": "pages/user/duty/index",
-                "text": "去做任务",
+                "text": "通知",
                 "iconPath": "./images/duty.png",
                 "selectedIconPath": "./images/duty-select.png"
             },

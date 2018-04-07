@@ -4,17 +4,19 @@ import {formatTime, info} from '../../../utils/util';
 const app = getApp();
 
 Page({
-    data: {
-        loading: false,
-        reqPage: {
-            pageNum: 0,
-            pageSize: 10
-        },
-        pageCount: 1,
-        items: []
-    },
     onLoad() {
-        this.mobile = app.user.get().mobile;
+        this.mobile = app.user.get().mobile
+    },
+    onShow() {
+        this.setData({
+            loading: false,
+            reqPage: {
+                pageNum: 0,
+                pageSize: 10
+            },
+            pageCount: 1,
+            items: []
+        });
         this.getItems()
     },
     onReachBottom() {

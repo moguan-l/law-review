@@ -5,7 +5,7 @@
                 <view class="media-box__title media-box__title_in-text">{{item.ownership}}</view>
                 <view class="media-box__desc">{{item.content}}</view>
                 <view class="media-box__pics" wx:if="{{!!item.attachInfoList && !!item.attachInfoList.length}}">
-                    <view class="media-box__pic-item" wx:for="{{item.attachInfoList}}" wx:for-item="attachInfo">
+                    <view class="media-box__pic-item" wx:for="{{item.attachInfoList}}" wx:key="{{index}}" wx:for-item="attachInfo">
                         <view class="media-box__pic">
                             <image src="{{attachInfo.url}}" data-current="{{attachInfo.url}}" data-urls="{{item.attachInfoList}}" bindtap="previewImage"/>
                         </view>
