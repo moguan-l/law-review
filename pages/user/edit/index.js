@@ -81,19 +81,19 @@ Page({
         if (identStatus !== 10 && identStatus !== 40) {
             return info(`${this.status[identStatus] || '未知状态'}，信息无法提交`)
         }
-        if (name === '') {
+        if (!name) {
             return info('请填写真实姓名')
         }
-        if (identNo === '') {
+        if (!identNo) {
             return info('请填写身份证号')
         }
         if ((!identSideA.url && !identSideA.tempFilePath) || (!identSideB.url && !identSideB.tempFilePath)) {
             return info('请上传身份证照片')
         }
-        if (payAccount === '') {
+        if (!payAccount) {
             return info('请填写支付宝账号')
         }
-        if (payName === '') {
+        if (!payName) {
             return info('请填写支付宝昵称')
         }
         let uploadFiles = [],
