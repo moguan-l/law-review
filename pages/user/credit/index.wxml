@@ -6,7 +6,7 @@
                     {{item.title}}
                     <view class="text-primary pull-right">+{{item.amount}}</view>
                 </view>
-                <view class="media-box__desc">{{formatTime(item.createTime, 'yyyy-MM-dd hh:mm:ss')}}</view>
+                <view class="media-box__desc">{{item.createTime}}</view>
             </view>
         </view>
     </view>

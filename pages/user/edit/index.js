@@ -5,7 +5,6 @@ import {loading, info} from '../../../utils/util';
 const app = getApp();
 
 Page({
-    mobile: app.user.get().mobile,
     status: {
         10: '未审核',
         20: '审核中',
@@ -23,6 +22,7 @@ Page({
         payName: ''
     },
     onLoad() {
+        this.mobile = app.user.get().mobile;
         loading('正在加载');
         getUserDetail({mobile: this.mobile})
             .then(res => {

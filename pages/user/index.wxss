@@ -1,5 +1,6 @@
 .media-box_access {
     position: relative;
+    padding-right:30px;
 }
 .media-box_access:after {
     content: '';

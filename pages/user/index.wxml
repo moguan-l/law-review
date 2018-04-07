@@ -3,10 +3,7 @@
         <view class="panel__bd">
             <navigator url="/pages/user/edit/index" class="media-box media-box_text media-box_access flex flex-middle" hover-class="media-box_active">
                 <view class="flex-1">
-                    <view class="media-box__title media-box__title_in-text">
-                        {{user.nickname || '--'}}
-                        &emsp;
-                    </view>
+                    <view class="media-box__title media-box__title_in-text">{{user.nickname || '--'}}</view>
                     <view class="media-box__desc">{{user.mobile || '--'}}</view>
                 </view>
                 <view class="text-muted">{{status[user.identStatus]}}</view>

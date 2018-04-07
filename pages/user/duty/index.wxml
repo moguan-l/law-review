@@ -5,7 +5,7 @@
                 <view class="media-box__title media-box__title_in-text">{{item.title}}</view>
                 <view class="media-box__desc">{{item.content}}</view>
                 <view class="media-box__info">
-                    <view class="media-box__info__meta">{{formatTime(item.createTime, 'yyyy-MM-dd hh:mm:ss')}}</view>
+                    <view class="media-box__info__meta">{{item.createTime}}</view>
                 </view>
             </view>
         </view>

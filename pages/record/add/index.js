@@ -5,7 +5,6 @@ import {loading, info} from '../../../utils/util';
 const app = getApp();
 
 Page({
-    mobile: app.user.get().mobile,
     data: {
         files: [],
         ownership: '',
@@ -17,6 +16,7 @@ Page({
         reasonTemplates: []
     },
     onLoad() {
+        this.mobile = app.user.get().mobile;
         loading('正在加载');
         queryTemplate()
             .then(res => {

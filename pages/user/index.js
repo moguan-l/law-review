@@ -4,18 +4,18 @@ import {loading, info} from '../../utils/util';
 const app = getApp();
 
 Page({
-    mobile: app.user.get().mobile,
-    status: {
-        10: '未审核',
-        20: '审核中',
-        30: '审核通过',
-        40: '审核未通过'
-    },
     data: {
+        status: {
+            10: '未审核',
+            20: '审核中',
+            30: '审核通过',
+            40: '审核未通过'
+        },
         user: {},
         credit: {}
     },
     onLoad() {
+        this.mobile = app.user.get().mobile;
         loading('正在加载');
         Promise.all([
                 getUserDetail({mobile: this.mobile}),

@@ -4,7 +4,6 @@ import {formatTime, info} from '../../utils/util';
 const app = getApp();
 
 Page({
-    mobile: app.user.get().mobile,
     data: {
         loading: false,
         reqPage: {
@@ -15,6 +14,7 @@ Page({
         items: []
     },
     onLoad() {
+        this.mobile = app.user.get().mobile;
         this.getItems()
     },
     onReachBottom() {
@@ -35,7 +35,12 @@ Page({
                     this.setData({
                         reqPage,
                         pageCount: res.data.pageCount,
-                        items: items.concat(res.data.items)
+                        items: items.concat(
+                            res.data.items.map(item => {
+                                item.createTime = formatTime(new Date(item.createTime), 'yyyy-MM-dd hh:mm:ss');
+                                return item
+                            })
+                        )
                     })
                 } else {
                     info(res.errmsg)
@@ -50,6 +55,5 @@ Page({
         let {current, urls} = e.currentTarget.dataset;
         urls = urls.map(item => item.url);
         wx.previewImage({current, urls})
-    },
-    formatTime
+    }
 });
