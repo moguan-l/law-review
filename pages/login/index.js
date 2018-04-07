@@ -1,3 +1,4 @@
+import crypto from '../../utils/crypto-js/index';
 import {login} from '../../services/index';
 import {loading, info} from '../../utils/util';
 
@@ -25,7 +26,7 @@ Page({
             return info('请输入密码')
         }
         loading('正在登录');
-        login({loginType: 1, mobile, password})
+        login({loginType: 1, mobile, password: crypto.MD5(password).toString()})
             .then(res => {
                 loading();
                 if (res.ret) {

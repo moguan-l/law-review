@@ -13,19 +13,19 @@
                 <view class="label">身份证号</view>
             </view>
             <view class="cell__bd">
-                <input class="input" placeholder="身份证号" data-name="ident_no" value="{{ident_no}}" bindinput="handleInput"/>
+                <input class="input" placeholder="身份证号" data-name="identNo" value="{{identNo}}" bindinput="handleInput"/>
             </view>
         </view>
-        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="ident_side_a">
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="identSideA">
             <view class="cell__bd">身份证正面照</view>
             <view class="cell__ft cell__ft_in-access">
-                <image class="cell__ft-image" src="{{ident_side_a.tempFilePath || ident_side_a.url}}"/>
+                <image class="cell__ft-image" src="{{identSideA.tempFilePath || identSideA.url}}"/>
             </view>
         </view>
-        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="ident_side_b">
+        <view class="cell cell_access" hover-class="cell_active" bindtap="chooseImage" id="identSideB">
             <view class="cell__bd">身份证反面照</view>
             <view class="cell__ft cell__ft_in-access">
-                <image class="cell__ft-image" src="{{ident_side_b.tempFilePath || ident_side_b.url}}"/>
+                <image class="cell__ft-image" src="{{identSideB.tempFilePath || identSideB.url}}"/>
             </view>
         </view>
         <view class="cell cell_input">
@@ -33,7 +33,7 @@
                 <view class="label">支付宝账号</view>
             </view>
             <view class="cell__bd">
-                <input class="input" placeholder="支付宝账号" data-name="pay_account" value="{{pay_account}}" bindinput="handleInput"/>
+                <input class="input" placeholder="支付宝账号" data-name="payAccount" value="{{payAccount}}" bindinput="handleInput"/>
             </view>
         </view>
         <view class="cell cell_input">
@@ -41,7 +41,7 @@
                 <view class="label">支付宝昵称</view>
             </view>
             <view class="cell__bd">
-                <input class="input" placeholder="支付宝昵称" data-name="pay_name" value="{{pay_name}}" bindinput="handleInput"/>
+                <input class="input" placeholder="支付宝昵称" data-name="payName" value="{{payName}}" bindinput="handleInput"/>
             </view>
         </view>
     </view>

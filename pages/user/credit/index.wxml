@@ -1,34 +1,22 @@
 <view>
-    <view class="panel">
+    <view class="panel" wx:if="{{!!items.length}}">
         <view class="panel__bd">
-            <view class="media-box media-box_text">
+            <view class="media-box media-box_text" wx:for="{{items}}" wx:key="{{item.pointNumId}}">
                 <view class="media-box__title media-box__title_in-text">
-                    上传资料通过审核
-                    <view class="text-primary pull-right">+20</view>
+                    {{item.title}}
+                    <view class="text-primary pull-right">+{{item.amount}}</view>
                 </view>
-                <view class="media-box__desc">2018-10-19 14:20:30</view>
+                <view class="media-box__desc">{{formatTime(item.createTime, 'yyyy-MM-dd hh:mm:ss')}}</view>
             </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">
-                    上传资料通过审核
-                    <view class="text-primary pull-right">+20</view>
-                </view>
-                <view class="media-box__desc">2018-10-19 14:20:30</view>
-            </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">
-                    上传资料通过审核
-                    <view class="text-primary pull-right">+20</view>
-                </view>
-                <view class="media-box__desc">2018-10-19 14:20:30</view>
-            </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">
-                    上传资料通过审核
-                    <view class="text-primary pull-right">+20</view>
-                </view>
-                <view class="media-box__desc">2018-10-19 14:20:30</view>
-            </view>
+        </view>
+    </view>
+    <view class="load-more" wx:if="loading">
+        <view class="loading"></view>
+        <view class="load-more__tips">正在加载</view>
+    </view>
+    <view class="load-more load-more_line" wx:else>
+        <view class="load-more__tips load-more__tips_in-line">
+            {{reqPage.pageNum >= pageCount ? '无更多数据' : '加载更多'}}
         </view>
     </view>
 </view>

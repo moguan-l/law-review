@@ -21,7 +21,7 @@
         <view class="flex-1">
             通过审核且未被禁用才可以正常登录
         </view>
-        <navigator url="/pages/reset-password/index" class="agree__link">忘记密码</navigator>
+        <navigator url="/pages/reset-password/index" class="agree__link" hover-class="none">忘记密码</navigator>
     </view>
     <view class="btn-area">
         <button class="btn" type="primary" bindtap="login">登录</button>

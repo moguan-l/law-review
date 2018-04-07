@@ -1,3 +1,4 @@
+import crypto from '../../utils/crypto-js';
 import {sendVerify, resetPassword} from '../../services/index';
 import {loading, info} from '../../utils/util';
 import {isPhone} from '../../utils/validator';
@@ -53,7 +54,7 @@ Page({
             return info('请输入新密码')
         }
         loading('正在提交');
-        resetPassword({mobile, vCode, newPassword})
+        resetPassword({mobile, vCode, newPassword: crypto.MD5(newPassword).toString()})
             .then(res => {
                 loading();
                 if (res.ret) {

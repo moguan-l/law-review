@@ -1,16 +1,20 @@
-import {getCities, eventUpload} from '../../../services/index';
+import {eventUpload} from '../../../services/index';
 import upload from '../../../utils/upload';
 import {loading, info} from '../../../utils/util';
 
 const app = getApp();
 
 Page({
+    mobile: app.user.get().mobile,
     data: {
-        title: '',
         files: [],
-        comment: '',
-        cityIndex: 0,
-        cities: [
+        ownership: '',
+        address: '',
+        lat: '',
+        lng: '',
+        content: '',
+        reasonIndex: 0,
+        reasonTemplates: [
             {id: 1, name: '北京'},
             {id: 2, name: '上海'},
             {id: 3, name: '广州'},
@@ -23,7 +27,7 @@ Page({
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
-            value = name === 'comment' ? e.detail.value : e.detail.value.trim();
+            value = name === 'content' ? e.detail.value : e.detail.value.trim();
         this.setData({[name]: value});
         return value
     },
@@ -47,22 +51,51 @@ Page({
         files = files.filter(item => item.timestamp !== timestamp);
         this.setData({files})
     },
-    handleCityChange(e) {
-        this.setData({cityIndex: e.detail.value})
+    chooseLocation() {
+        wx.chooseLocation({
+            success: res => {
+                let {address, latitude, longitude} = res;
+                this.setData({
+                    address,
+                    lat: latitude,
+                    lng: longitude
+                })
+            }
+        })
+    },
+    handleReasonChange(e) {
+        this.setData({reasonIndex: e.detail.value})
     },
     submit() {
-        let {title, files, comment, cityIndex, cities} = this.data;
-        console.log(files);
+        let {ownership, files, lat, lng, content, reasonIndex, reasonTemplates} = this.data,
+            attachInfoList = files.map(item => ({url: item.url}));
+        eventUpload({mobile: this.mobile, attachInfoList, ownership, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex].id, })
+            .then(res => {
+                loading();
+                if (res.ret) {
+                    wx.showToast({title: '提交成功'});
+                    setTimeout(() => wx.navigateBack(), 1500)
+                } else {
+                    info(res.errmsg)
+                }
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })
     },
     upload() {
-        let {title, files, comment} = this.data;
+        let {ownership, files, lat, lng, content} = this.data;
         if (!files || !files.length) {
             return info('请选择违规照片')
         }
-        if (title === '') {
+        if (ownership === '') {
             return info('请填写违规主体')
         }
-        if (comment === '') {
+        if (!lat || !lng) {
+            return info('请选择所在位置')
+        }
+        if (content === '') {
             return info('请填写违规说明')
         }
         loading('正在提交');

@@ -1,34 +1,22 @@
 <view>
-    <view class="panel">
+    <view class="panel" wx:if="{{!!items.length}}">
         <view class="panel__bd">
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">任务名称</view>
-                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
+            <view class="media-box media-box_text" wx:for="{{items}}" wx:key="{{item.notifyId}}">
+                <view class="media-box__title media-box__title_in-text">{{item.title}}</view>
+                <view class="media-box__desc">{{item.content}}</view>
                 <view class="media-box__info">
-                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
+                    <view class="media-box__info__meta">{{formatTime(item.createTime, 'yyyy-MM-dd hh:mm:ss')}}</view>
                 </view>
             </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">任务名称</view>
-                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
-                <view class="media-box__info">
-                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
-                </view>
-            </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">任务名称</view>
-                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
-                <view class="media-box__info">
-                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
-                </view>
-            </view>
-            <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">任务名称</view>
-                <view class="media-box__desc">任务描述任务描述任务描述任务描述任务描述任务描述</view>
-                <view class="media-box__info">
-                    <view class="media-box__info__meta">2018-10-12 12:12:12</view>
-                </view>
-            </view>
+        </view>
+    </view>
+    <view class="load-more" wx:if="loading">
+        <view class="loading"></view>
+        <view class="load-more__tips">正在加载</view>
+    </view>
+    <view class="load-more load-more_line" wx:else>
+        <view class="load-more__tips load-more__tips_in-line">
+            {{reqPage.pageNum >= pageCount ? '无更多数据' : '加载更多'}}
         </view>
     </view>
 </view>

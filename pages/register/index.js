@@ -1,3 +1,4 @@
+import crypto from '../../utils/crypto-js';
 import {getCities, sendVerify, register} from '../../services/index';
 import {loading, info} from '../../utils/util';
 import {isPhone} from '../../utils/validator';
@@ -84,7 +85,7 @@ Page({
             return info('请输入姓名')
         }
         loading('正在提交');
-        register({mobile, vCode, password, nickname, name, cityId: cities[cityIndex].id})
+        register({mobile, vCode, password: crypto.MD5(password).toString(), nickname, name, cityId: cities[cityIndex].id})
             .then(res => {
                 loading();
                 if (res.ret) {

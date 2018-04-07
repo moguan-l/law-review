@@ -14,11 +14,11 @@ export const API = {
     register: `${baseURL}/api/user/manage/register`,
     resetPassword: `${baseURL}/api/user/manage/resetPassword`,
     userUpdate: `${baseURL}/api/user/manage/userUpdate`,
-    queryNotify: `${baseURL}`,
-    eventUpload: `${baseURL}`,
-    queryEventHistory: `${baseURL}`,
+    queryNotify: `${baseURL}/api/user/event/queryNotify`,
+    eventUpload: `${baseURL}/api/user/event/eventUpload`,
+    queryEventHistory: `${baseURL}/api/user/event/queryEventHistory`,
     userRealPoint: `${baseURL}/api/user/point/userRealPoint`,
-    queryUserPoint: `${baseURL}`
+    queryUserPoint: `${baseURL}/api/user/point/queryUserPoint`
 };
 
 /**

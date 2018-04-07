@@ -576,35 +576,35 @@ icon {
     padding: .4em;
     min-width: 0
 }
-.loadmore {
+.load-more {
     margin: 15px auto;
     width: 65%;
     font-size: 14px;
     line-height: 1.6;
     text-align: center
 }
-.loadmore__tips {
+.load-more__tips {
     display: inline-block;
     vertical-align: middle
 }
-.loadmore_line {
+.load-more_line {
     margin: 24px auto 0;
     border-top: 1rpx solid #e2e2e2
 }
-.loadmore__tips_in-line {
+.load-more__tips_in-line {
     position: relative;
     top: -.9em;
     padding: 0 .55em;
     color: #888;
     background-color: #f5f5f5
 }
-.loadmore__tips_in-dot {
+.load-more__tips_in-dot {
     position: relative;
     padding: 0 .16em;
     width: 4px;
     height: 1.6em
 }
-.loadmore__tips_in-dot:before {
+.load-more__tips_in-dot:before {
     content: '';
     position: absolute;
     top: 50%;

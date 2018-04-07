@@ -7,11 +7,11 @@ const app = getApp();
 Page({
     data: {
         name: '',
-        ident_no: '',
-        ident_side_a: {},
-        ident_side_b: {},
-        pay_account: '',
-        pay_name: ''
+        identNo: '',
+        identSideA: {},
+        identSideB: {},
+        payAccount: '',
+        payName: ''
     },
     onLoad() {
 
@@ -29,22 +29,33 @@ Page({
         })
     },
     submit() {
-        let {name, ident_no, ident_side_a, ident_side_b, pay_account, pay_name} = this.data
-        console.log(ident_side_a);
-        console.log(ident_side_b);
+        let {name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
+        userUpdate({mobile: app.user.get().mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, payType: 10, payAccount, payName})
+            .then(res => {
+                loading();
+                if (res.ret) {
+                    wx.showToast({title: '提交成功'})
+                } else {
+                    info(res.errmsg)
+                }
+            })
+            .catch(err => {
+                loading();
+                info(err.errMsg)
+            })
     },
     upload() {
-        let {name, ident_no, ident_side_a, ident_side_b, pay_account, pay_name} = this.data,
+        let {name, identNo, identSideA, identSideB, payAccount, payName} = this.data,
             uploadFiles = [],
             uploadActions = [];
         loading('正在提交');
-        if (!!ident_side_a.tempFilePath && !ident_side_a.url) {
-            uploadFiles.push('ident_side_a');
-            uploadActions.push(upload(ident_side_a.tempFilePath, 'card'))
+        if (!!identSideA.tempFilePath && !identSideA.url) {
+            uploadFiles.push('identSideA');
+            uploadActions.push(upload(identSideA.tempFilePath, 'card'))
         }
-        if (!!ident_side_b.tempFilePath && !ident_side_b.url) {
-            uploadFiles.push('ident_side_b');
-            uploadActions.push(upload(ident_side_b.tempFilePath, 'card'))
+        if (!!identSideB.tempFilePath && !identSideB.url) {
+            uploadFiles.push('identSideB');
+            uploadActions.push(upload(identSideB.tempFilePath, 'card'))
         }
         if (!!uploadActions.length) {
             Promise.all(uploadActions)
@@ -59,7 +70,7 @@ Page({
                             flag = false
                         }
                     });
-                    uploadFiles.forEach(item => this.setData({[item]: this.data[item]}))
+                    uploadFiles.forEach(item => this.setData({[item]: this.data[item]}));
                     if (!flag) {
                         return info('上传身份证照片失败')
                     }
