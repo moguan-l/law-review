@@ -692,7 +692,7 @@ icon {
 .media-box__info {
     list-style: none;
     overflow: hidden;
-    margin-top: 15px;
+    margin-top: 10px;
     padding-bottom: 5px;
     color: #cecece;
     font-size: 13px;
