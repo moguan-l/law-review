@@ -2,7 +2,10 @@
     <view class="panel" wx:for="{{items}}" wx:key="{{item.id}}">
         <view class="panel__bd">
             <view class="media-box media-box_text">
-                <view class="media-box__title media-box__title_in-text">{{item.ownership}}</view>
+                <view class="media-box__title media-box__title_in-text flex">
+                    <view class="flex-1">{{item.ownership}}</view>
+                    <view class="text-muted">未审核</view>
+                </view>
                 <view class="media-box__desc">{{item.content}}</view>
                 <view class="media-box__pics" wx:if="{{!!item.attachInfoList && !!item.attachInfoList.length}}">
                     <view class="media-box__pic-item" wx:for="{{item.attachInfoList}}" wx:key="{{index}}" wx:for-item="attachInfo">

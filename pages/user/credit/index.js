@@ -14,22 +14,41 @@ Page({
         items: []
     },
     onLoad() {
-        this.mobile = app.user.get().mobile
-    },
-    onShow() {
+        this.mobile = app.user.get().mobile;
         this.getItems()
     },
     onReachBottom() {
         this.getItems()
     },
-    getItems() {
+    onPullDownRefresh() {
+        if (this.data.loading) {
+            return false
+        }
+        this.setData({
+            reqPage: {
+                pageNum: 0,
+                pageSize: 10
+            },
+            pageCount: 1
+        });
+        this._getItems()
+            .then(() => {
+                wx.stopPullDownRefresh()
+            })
+            .catch(err => {
+                wx.stopPullDownRefresh();
+                this.setData({loading: false});
+                info(err.errMsg)
+            })
+    },
+    _getItems() {
         let {loading, reqPage, pageCount, items} = this.data,
             pageNum = reqPage.pageNum + 1;
         if(loading || pageNum > pageCount) {
             return false
         }
         this.setData({loading: true});
-        queryUserPoint({mobile: this.mobile, reqPage: {...reqPage, pageNum}})
+        return queryUserPoint({mobile: this.mobile, reqPage: {...reqPage, pageNum}})
             .then(res => {
                 this.setData({loading: false});
                 if (res.ret) {
@@ -48,6 +67,9 @@ Page({
                     info(res.errmsg)
                 }
             })
+    },
+    getItems() {
+        this._getItems()
             .catch(err => {
                 this.setData({loading: false});
                 info(err.errMsg)

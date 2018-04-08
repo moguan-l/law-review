@@ -18,7 +18,7 @@ Page({
     onLoad() {
         this.mobile = app.user.get().mobile;
         loading('正在加载');
-        queryTemplate()
+        queryTemplate({templateType: 1})
             .then(res => {
                 loading();
                 if (res.ret) {
@@ -90,9 +90,9 @@ Page({
         this.setData({reasonIndex: e.detail.value})
     },
     submit() {
-        let {ownership, files, lat, lng, content, reasonIndex, reasonTemplates} = this.data,
+        let {ownership, files, address, lat, lng, content, reasonIndex, reasonTemplates} = this.data,
             attachInfoList = files.map(item => ({url: item.url}));
-        eventUpload({mobile: this.mobile, attachInfoList, ownership, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].templateTypeId : null, })
+        eventUpload({mobile: this.mobile, attachInfoList, ownership, position: address, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].id : null, })
             .then(res => {
                 loading();
                 if (res.ret) {

@@ -16,7 +16,7 @@ export const API = {
     getUserDetail: `${baseURL}/api/user/manage/getUserDetail`,
     userUpdate: `${baseURL}/api/user/manage/userUpdate`,
     queryNotify: `${baseURL}/api/user/event/queryNotify`,
-    queryTemplate: `${baseURL}/api/user/event/queryTemplate`,
+    queryTemplate: `${baseURL}/admin/api/template/selectTemplate`,
     eventUpload: `${baseURL}/api/user/event/eventUpload`,
     queryEventHistory: `${baseURL}/api/user/event/queryEventHistory`,
     userRealPoint: `${baseURL}/api/user/point/userRealPoint`,

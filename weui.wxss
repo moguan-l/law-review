@@ -258,6 +258,9 @@ icon {
 .cell_select {
     padding: 0
 }
+.cell_select .cell__bd {
+    overflow: hidden;
+}
 .select {
     position: relative;
     overflow: hidden;

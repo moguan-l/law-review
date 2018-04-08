@@ -13,7 +13,6 @@
     ],
     "window": {
         "backgroundColor": "#f5f5f5",
-        "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#37ac68",
         "navigationBarTitleText": "违法审核",
         "navigationBarTextStyle": "#ffffff"

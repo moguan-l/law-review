@@ -39,8 +39,8 @@
                 <view class="label">违规原因</view>
             </view>
             <view class="cell__bd">
-                <picker bindchange="handleReasonChange" range-key="templateTypeName" value="{{reasonIndex}}" range="{{reasonTemplates}}">
-                    <view class="select select_in-select-after">{{reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].templateTypeName : '请选择'}}</view>
+                <picker bindchange="handleReasonChange" range-key="content" value="{{reasonIndex}}" range="{{reasonTemplates}}">
+                    <view class="select select_in-select-after">{{reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].content : '请选择'}}</view>
                 </picker>
             </view>
         </view>

@@ -66,7 +66,8 @@ Page({
             .then(res => {
                 loading();
                 if (res.ret) {
-                    wx.showToast({title: '提交成功'})
+                    wx.showToast({title: '提交成功'});
+                    setTimeout(() => wx.navigateBack(), 1500)
                 } else {
                     info(res.errmsg)
                 }

@@ -68,8 +68,8 @@ export const queryNotify = data => {
  * 获取违规模板列表
  * @returns {*}
  */
-export const queryTemplate = () => {
-    return request({method: 'POST', url: API.queryTemplate})
+export const queryTemplate = data => {
+    return request({method: 'POST', url: API.queryTemplate, data})
 };
 /**
  * 违法拍
