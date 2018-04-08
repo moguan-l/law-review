@@ -11,7 +11,7 @@
                                 </view>
                             </block>
                         </view>
-                        <view class="uploader__input-box">
+                        <view class="uploader__input-box" wx:if="{{files.length < 9}}">
                             <view class="uploader__input" bindtap="chooseImage"></view>
                         </view>
                     </view>
