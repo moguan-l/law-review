@@ -69,10 +69,10 @@ Page({
             })
     },
     getItems() {
-        this._getItems()
-            .catch(err => {
-                this.setData({loading: false});
-                info(err.errMsg)
-            })
+        let result = this._getItems();
+        !!result && result.catch(err => {
+            this.setData({loading: false});
+            info(err.errMsg)
+        })
     }
 });

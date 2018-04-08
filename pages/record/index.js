@@ -5,6 +5,12 @@ const app = getApp();
 
 Page({
     data: {
+        status: {
+            10: '待审核',
+            20: '审核中',
+            30: '审核完成',
+            40: '审核未通过'
+        },
         loading: false,
         reqPage: {
             pageNum: 0,
@@ -69,11 +75,11 @@ Page({
             })
     },
     getItems() {
-        this._getItems()
-            .catch(err => {
-                this.setData({loading: false});
-                info(err.errMsg)
-            })
+        let result = this._getItems();
+        !!result && result.catch(err => {
+            this.setData({loading: false});
+            info(err.errMsg)
+        })
     },
     previewImage(e) {
         let {current, urls} = e.currentTarget.dataset;

@@ -4,7 +4,7 @@
             <view class="media-box media-box_text">
                 <view class="media-box__title media-box__title_in-text flex">
                     <view class="flex-1">{{item.ownership}}</view>
-                    <view class="text-muted">未审核</view>
+                    <view class="text-muted">{{status[item.auditStatus]}}</view>
                 </view>
                 <view class="media-box__desc">{{item.content}}</view>
                 <view class="media-box__pics" wx:if="{{!!item.attachInfoList && !!item.attachInfoList.length}}">
@@ -16,6 +16,7 @@
                 </view>
                 <view class="media-box__info">
                     <view class="media-box__info__meta">{{item.createTime}}</view>
+                    <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.position || ''}}</view>
                 </view>
             </view>
         </view>
