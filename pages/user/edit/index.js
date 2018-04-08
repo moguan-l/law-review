@@ -84,7 +84,7 @@ Page({
     submit() {
         let {name, identNo, identSideA, identSideB, cityIndex, cities, payType, payAccount, payName} = this.data,
             city = cities[cityIndex] || {};
-        userUpdate({mobile: this.mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, cityCode: city.cityCode, payType, payAccount, payName})
+        userUpdate({mobile: this.mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, cityCode: city.cityCode, cityName: city.name, payType, payAccount, payName})
             .then(res => {
                 loading();
                 if (res.ret) {
