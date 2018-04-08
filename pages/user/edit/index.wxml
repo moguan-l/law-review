@@ -28,6 +28,16 @@
                 <image class="cell__ft-image" src="{{identSideB.tempFilePath || identSideB.url}}"/>
             </view>
         </view>
+        <view class="cell cell_select">
+            <view class="cell__hd cell__hd_in-select-after">
+                <view class="label">所在城市</view>
+            </view>
+            <view class="cell__bd">
+                <picker bindchange="handleCityChange" range-key="name" value="{{cityIndex}}" range="{{cities}}">
+                    <view class="select select_in-select-after">{{cities[cityIndex] ? cities[cityIndex].name : '请选择'}}</view>
+                </picker>
+            </view>
+        </view>
         <view class="cell cell_input">
             <view class="cell__hd">
                 <view class="label">支付宝账号</view>

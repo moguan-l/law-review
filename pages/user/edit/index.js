@@ -1,4 +1,4 @@
-import {getUserDetail, userUpdate} from '../../../services/index';
+import {getUserDetail, userUpdate, getCityList} from '../../../services/index';
 import upload from '../../../utils/upload';
 import {loading, info} from '../../../utils/util';
 
@@ -19,33 +19,51 @@ Page({
         identSideB: {},
         payType: 10,
         payAccount: '',
-        payName: ''
+        payName: '',
+        cityIndex: 0,
+        cities: []
     },
     onLoad() {
         this.mobile = app.user.get().mobile;
         loading('正在加载');
-        getUserDetail({mobile: this.mobile})
+        getCityList()
             .then(res => {
-                loading();
                 if (res.ret) {
-                    let {identStatus, name, identNo, identSideA, identSideB, payInfoList} = res.data,
-                        {payType = 10, payAccount = '', payName = ''} = payInfoList[0] || {};
+                    this.setData({cities: res.data || []});
+                    return getUserDetail({mobile: this.mobile})
+                } else {
+                    return Promise.reject(res)
+                }
+            })
+            .then(res => {
+                if (res.ret) {
+                    loading();
+                    let {identStatus, name, identNo, identSideA, identSideB, cityCode, payInfoList} = res.data,
+                        {payType = 10, payAccount = '', payName = ''} = payInfoList[0] || {},
+                        cityIndex = 0;
+                    this.data.cities.forEach((item, index) => {
+                        if (item.cityCode == cityCode) {
+                            cityIndex = index;
+                            return
+                        }
+                    });
                     this.setData({
                         identStatus,
                         name, identNo,
                         identSideA: {url: identSideA},
                         identSideB: {url: identSideB},
+                        cityIndex,
                         payType,
                         payAccount,
                         payName
                     })
                 } else {
-                    info(res.errmsg)
+                    return Promise.reject(res)
                 }
             })
             .catch(err => {
                 loading();
-                info(err.errMsg)
+                info(err.errMsg || err.errmsg)
             })
     },
     handleInput(e) {
@@ -60,9 +78,13 @@ Page({
             success: res => this.setData({[id]: {tempFilePath: res.tempFilePaths[0]}})
         })
     },
+    handleCityChange(e) {
+        this.setData({cityIndex: e.detail.value})
+    },
     submit() {
-        let {name, identNo, identSideA, identSideB, payType, payAccount, payName} = this.data;
-        userUpdate({mobile: this.mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, payType, payAccount, payName})
+        let {name, identNo, identSideA, identSideB, cityIndex, cities, payType, payAccount, payName} = this.data,
+            city = cities[cityIndex] || {};
+        userUpdate({mobile: this.mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, cityCode: city.cityCode, payType, payAccount, payName})
             .then(res => {
                 loading();
                 if (res.ret) {
