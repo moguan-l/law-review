@@ -56,7 +56,7 @@ Page({
                     this.setData({
                         reqPage,
                         pageCount: res.data.pageCount,
-                        items: items.concat(
+                        items: (res.data.pageNum === 1 ? [] : items).concat(
                             res.data.items.map(item => {
                                 item.createTime = formatTime(new Date(item.createTime), 'yyyy-MM-dd hh:mm:ss');
                                 return item
