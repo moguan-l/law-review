@@ -31,7 +31,15 @@
                 <view class="label">所在位置</view>
             </view>
             <view class="cell__bd">
-                <view class="select select_in-select-after" bindtap="chooseLocation">{{address}}</view>
+                <view class="select select_in-select-after" bindtap="chooseLocation">{{position}}</view>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
+                <view class="label">详细地址</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="详细地址" data-name="address" value="{{address}}" bindinput="handleInput"/>
             </view>
         </view>
         <view class="cell cell_select">

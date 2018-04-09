@@ -8,9 +8,10 @@ Page({
     data: {
         files: [],
         ownership: '',
-        address: '',
+        position: '',
         lat: '',
         lng: '',
+        address: '',
         content: '',
         reasonIndex: 0,
         reasonTemplates: []
@@ -36,7 +37,7 @@ Page({
     },
     handleInput(e) {
         let {name} = e.currentTarget.dataset,
-            value = name === 'content' ? e.detail.value : e.detail.value.trim();
+            value = name === 'content' || name === 'address' ? e.detail.value : e.detail.value.trim();
         this.setData({[name]: value});
         return value
     },
@@ -65,7 +66,7 @@ Page({
             success: res => {
                 let {address = '', latitude, longitude} = res;
                 this.setData({
-                    address,
+                    position: address,
                     lat: latitude,
                     lng: longitude
                 })
@@ -90,9 +91,9 @@ Page({
         this.setData({reasonIndex: e.detail.value})
     },
     submit() {
-        let {ownership, files, address, lat, lng, content, reasonIndex, reasonTemplates} = this.data,
+        let {ownership, files, position, lat, lng, address, content, reasonIndex, reasonTemplates} = this.data,
             attachInfoList = files.map(item => ({url: item.url}));
-        eventUpload({mobile: this.mobile, attachInfoList, ownership, position: address, lat, lng, content, reasonTemplateId: reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].id : null, })
+        eventUpload({mobile: this.mobile, attachInfoList, ownership, position, lat, lng, address, content, reasonTemplateId: reasonTemplates[reasonIndex] ? reasonTemplates[reasonIndex].id : null, })
             .then(res => {
                 loading();
                 if (res.ret) {
