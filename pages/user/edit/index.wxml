@@ -2,6 +2,14 @@
     <view class="cells">
         <view class="cell cell_input">
             <view class="cell__hd">
+                <view class="label">昵称</view>
+            </view>
+            <view class="cell__bd">
+                <input class="input" placeholder="昵称" data-name="nickname" value="{{nickname}}" bindinput="handleInput"/>
+            </view>
+        </view>
+        <view class="cell cell_input">
+            <view class="cell__hd">
                 <view class="label">真实姓名</view>
             </view>
             <view class="cell__bd">

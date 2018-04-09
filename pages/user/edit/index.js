@@ -13,6 +13,7 @@ Page({
     },
     data: {
         identStatus: 0,
+        nickname: '',
         name: '',
         identNo: '',
         identSideA: {},
@@ -38,7 +39,7 @@ Page({
             .then(res => {
                 if (res.ret) {
                     loading();
-                    let {identStatus, name, identNo, identSideA, identSideB, cityCode, payInfoList} = res.data,
+                    let {identStatus, nickname, name, identNo, identSideA, identSideB, cityCode, payInfoList} = res.data,
                         {payType = 10, payAccount = '', payName = ''} = payInfoList[0] || {},
                         cityIndex = 0;
                     this.data.cities.forEach((item, index) => {
@@ -49,7 +50,7 @@ Page({
                     });
                     this.setData({
                         identStatus,
-                        name, identNo,
+                        nickname, name, identNo,
                         identSideA: {url: identSideA},
                         identSideB: {url: identSideB},
                         cityIndex,
@@ -82,9 +83,9 @@ Page({
         this.setData({cityIndex: e.detail.value})
     },
     submit() {
-        let {name, identNo, identSideA, identSideB, cityIndex, cities, payType, payAccount, payName} = this.data,
+        let {nickname, name, identNo, identSideA, identSideB, cityIndex, cities, payType, payAccount, payName} = this.data,
             city = cities[cityIndex] || {};
-        userUpdate({mobile: this.mobile, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, cityCode: city.cityCode, cityName: city.name, payType, payAccount, payName})
+        userUpdate({mobile: this.mobile, nickname, name, identNo, identSideA: identSideA.url, identSideB: identSideB.url, cityCode: city.cityCode, cityName: city.name, payType, payAccount, payName})
             .then(res => {
                 loading();
                 if (res.ret) {
@@ -100,9 +101,12 @@ Page({
             })
     },
     upload() {
-        let {identStatus, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
+        let {identStatus, nickname, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
         if (identStatus !== 10 && identStatus !== 40) {
             return info(`${this.status[identStatus] || '未知状态'}，信息无法提交`)
+        }
+        if (!nickname) {
+            return info('请填写昵称')
         }
         if (!name) {
             return info('请填写真实姓名')
