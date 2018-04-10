@@ -11,6 +11,7 @@ export default {
         wx.removeStorageSync(USER)
     },
     loggedIn() {
-        return !!this.get()
+        let user = this.get();
+        return !!user && !!user.mobile
     }
 }
