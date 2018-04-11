@@ -12,7 +12,7 @@ Page({
         40: '审核未通过'
     },
     data: {
-        identStatus: 0,
+        editable: false,
         nickname: '',
         name: '',
         identNo: '',
@@ -49,7 +49,7 @@ Page({
                         }
                     });
                     this.setData({
-                        identStatus,
+                        editable: identStatus === 10 || identStatus === 40,
                         nickname, name, identNo,
                         identSideA: {url: identSideA},
                         identSideB: {url: identSideB},
@@ -101,21 +101,20 @@ Page({
             })
     },
     upload() {
-        let {identStatus, nickname, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
-        if (identStatus !== 10 && identStatus !== 40) {
-            return info(`${this.status[identStatus] || '未知状态'}，信息无法提交`)
-        }
+        let {editable, nickname, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
         if (!nickname) {
             return info('请填写昵称')
         }
-        if (!name) {
-            return info('请填写真实姓名')
-        }
-        if (!identNo) {
-            return info('请填写身份证号')
-        }
-        if ((!identSideA.url && !identSideA.tempFilePath) || (!identSideB.url && !identSideB.tempFilePath)) {
-            return info('请上传身份证照片')
+        if (editable) {
+            if (!name) {
+                return info('请填写真实姓名')
+            }
+            if (!identNo) {
+                return info('请填写身份证号')
+            }
+            if ((!identSideA.url && !identSideA.tempFilePath) || (!identSideB.url && !identSideB.tempFilePath)) {
+                return info('请上传身份证照片')
+            }
         }
         if (!payAccount) {
             return info('请填写支付宝账号')
