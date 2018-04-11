@@ -15,7 +15,7 @@
                     </view>
                 </view>
                 <view class="media-box__info">
-                    <view class="weui-media-box__info__meta">{{item.position || ''}}</view>
+                    <view class="weui-media-box__info__meta">{{item.position}} {{item.address}}</view>
                 </view>
                 <view class="media-box__info">
                     <view class="media-box__info__meta">{{item.createTime}}</view>
