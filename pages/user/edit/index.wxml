@@ -1,16 +1,12 @@
 <view>
     <view class="cells">
-        <view class="cell cell_input" wx:if="{{editable}}">
+        <view class="cell cell_input">
             <view class="cell__hd">
                 <view class="label">昵称</view>
             </view>
             <view class="cell__bd">
                 <input class="input" placeholder="昵称" data-name="nickname" value="{{nickname}}" bindinput="handleInput"/>
             </view>
-        </view>
-        <view class="cell" wx:else>
-            <view class="cell__bd">昵称</view>
-            <view class="cell__ft">{{nickname}}</view>
         </view>
         <view class="cell cell_input" wx:if="{{editable}}">
             <view class="cell__hd">
@@ -60,7 +56,7 @@
                 <image class="cell__ft-image" src="{{identSideB.url}}"/>
             </view>
         </view>
-        <view class="cell cell_select" wx:if="{{editable}}">
+        <view class="cell cell_select">
             <view class="cell__hd cell__hd_in-select-after">
                 <view class="label">所在城市</view>
             </view>
@@ -70,11 +66,7 @@
                 </picker>
             </view>
         </view>
-        <view class="cell" wx:else>
-            <view class="cell__bd">所在城市</view>
-            <view class="cell__ft">{{cities[cityIndex] ? cities[cityIndex].name : '未选择'}}</view>
-        </view>
-        <view class="cell cell_input" wx:if="{{editable}}">
+        <view class="cell cell_input">
             <view class="cell__hd">
                 <view class="label">支付宝账号</view>
             </view>
@@ -82,11 +74,7 @@
                 <input class="input" placeholder="支付宝账号" data-name="payAccount" value="{{payAccount}}" bindinput="handleInput"/>
             </view>
         </view>
-        <view class="cell" wx:else>
-            <view class="cell__bd">支付宝账号</view>
-            <view class="cell__ft">{{payAccount}}</view>
-        </view>
-        <view class="cell cell_input" wx:if="{{editable}}">
+        <view class="cell cell_input">
             <view class="cell__hd">
                 <view class="label">支付宝昵称</view>
             </view>
@@ -94,12 +82,8 @@
                 <input class="input" placeholder="支付宝昵称" data-name="payName" value="{{payName}}" bindinput="handleInput"/>
             </view>
         </view>
-        <view class="cell" wx:else>
-            <view class="cell__bd">支付宝昵称</view>
-            <view class="cell__ft">{{payName}}</view>
-        </view>
     </view>
-    <view class="btn-area" wx:if="{{editable}}">
+    <view class="btn-area">
         <button class="btn" type="primary" bindtap="upload">提交</button>
     </view>
 </view>

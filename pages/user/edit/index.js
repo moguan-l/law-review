@@ -101,18 +101,20 @@ Page({
             })
     },
     upload() {
-        let {nickname, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
+        let {editable, nickname, name, identNo, identSideA, identSideB, payAccount, payName} = this.data;
         if (!nickname) {
             return info('请填写昵称')
         }
-        if (!name) {
-            return info('请填写真实姓名')
-        }
-        if (!identNo) {
-            return info('请填写身份证号')
-        }
-        if ((!identSideA.url && !identSideA.tempFilePath) || (!identSideB.url && !identSideB.tempFilePath)) {
-            return info('请上传身份证照片')
+        if (editable) {
+            if (!name) {
+                return info('请填写真实姓名')
+            }
+            if (!identNo) {
+                return info('请填写身份证号')
+            }
+            if ((!identSideA.url && !identSideA.tempFilePath) || (!identSideB.url && !identSideB.tempFilePath)) {
+                return info('请上传身份证照片')
+            }
         }
         if (!payAccount) {
             return info('请填写支付宝账号')
