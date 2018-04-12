@@ -5,22 +5,61 @@
 const baseURL = 'https://www.pohou.com';
 /**
  * 接口地址
- * @type {{login: string, getCityList: string, sendVerify: string, register: string, resetPassword: string, getUserDetail: string, userUpdate: string, queryNotify: string, queryTemplate: string, eventUpload: string, queryEventHistory: string, userRealPoint: string, queryUserPoint: string}}
+ * @type {{login: {url: string, requireAuth: boolean}, getCityList: {url: string, requireAuth: boolean}, sendVerify: {url: string, requireAuth: boolean}, register: {url: string, requireAuth: boolean}, resetPassword: {url: string, requireAuth: boolean}, getUserDetail: {url: string, requireAuth: boolean}, userUpdate: {url: string, requireAuth: boolean}, queryNotify: {url: string, requireAuth: boolean}, queryTemplate: {url: string, requireAuth: boolean}, eventUpload: {url: string, requireAuth: boolean}, queryEventHistory: {url: string, requireAuth: boolean}, userRealPoint: {url: string, requireAuth: boolean}, queryUserPoint: {url: string, requireAuth: boolean}}}
  */
 export const API = {
-    login: `${baseURL}/api/user/manage/login`,
-    getCityList: `${baseURL}/api/user/base/getCityList`,
-    sendVerify: `${baseURL}/api/user/base/sendVerify`,
-    register: `${baseURL}/api/user/manage/register`,
-    resetPassword: `${baseURL}/api/user/manage/resetPassword`,
-    getUserDetail: `${baseURL}/api/user/manage/getUserDetail`,
-    userUpdate: `${baseURL}/api/user/manage/userUpdate`,
-    queryNotify: `${baseURL}/api/user/event/queryNotify`,
-    queryTemplate: `${baseURL}/admin/api/template/selectTemplate`,
-    eventUpload: `${baseURL}/api/user/event/eventUpload`,
-    queryEventHistory: `${baseURL}/api/user/event/queryEventHistory`,
-    userRealPoint: `${baseURL}/api/user/point/userRealPoint`,
-    queryUserPoint: `${baseURL}/api/user/point/queryUserPoint`
+    login: {
+        url: `${baseURL}/api/user/manage/login`,
+        requireAuth: false
+    },
+    getCityList: {
+        url: `${baseURL}/api/user/base/getCityList`,
+        requireAuth: false
+    },
+    sendVerify: {
+        url: `${baseURL}/api/user/base/sendVerify`,
+        requireAuth: false
+    },
+    register: {
+        url: `${baseURL}/api/user/manage/register`,
+        requireAuth: false
+    },
+    resetPassword: {
+        url: `${baseURL}/api/user/manage/resetPassword`,
+        requireAuth: false
+    },
+    getUserDetail: {
+        url: `${baseURL}/api/user/manage/getUserDetail`,
+        requireAuth: true
+    },
+    userUpdate: {
+        url: `${baseURL}/api/user/manage/userUpdate`,
+        requireAuth: true
+    },
+    queryNotify: {
+        url: `${baseURL}/api/user/event/queryNotify`,
+        requireAuth: true
+    },
+    queryTemplate: {
+        url: `${baseURL}/admin/api/template/selectTemplate`,
+        requireAuth: false
+    },
+    eventUpload: {
+        url: `${baseURL}/api/user/event/eventUpload`,
+        requireAuth: true
+    },
+    queryEventHistory: {
+        url: `${baseURL}/api/user/event/queryEventHistory`,
+        requireAuth: true
+    },
+    userRealPoint: {
+        url: `${baseURL}/api/user/point/userRealPoint`,
+        requireAuth: true
+    },
+    queryUserPoint: {
+        url: `${baseURL}/api/user/point/queryUserPoint`,
+        requireAuth: true
+    }
 };
 
 /**
