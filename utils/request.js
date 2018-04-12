@@ -6,7 +6,7 @@ export default ({method, api, data}) => {
             success: res => {
                 if (requireAuth) {
                     let {errcode} = res.data;
-                    if (errcode  === 602 || errcode === 610) {
+                    if (errcode === 602 || errcode === 610) {
                         return wx.reLaunch({url: '/pages/login/index'})
                     }
                 }
