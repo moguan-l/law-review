@@ -1,5 +1,5 @@
-export default ({method, api, data}) => {
-    let {url, requireAuth} = api;
+export default ({api, data}) => {
+    let {method, url, requireAuth} = api;
     return new Promise((success, fail) => {
         wx.request({
             url, method, data,
